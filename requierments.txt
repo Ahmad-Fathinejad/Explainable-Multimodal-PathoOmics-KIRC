@@ -1,0 +1,17 @@
+torch
+
+torchvision
+
+pandas
+
+numpy
+
+scikit-learn
+
+matplotlib
+
+seaborn
+
+streamlit
+
+scikit-fuzzy
