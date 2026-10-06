@@ -19,7 +19,7 @@ df = load_data()
 
 st.sidebar.header("Patient Selection")
 # اضافه کردن متن راهنما به سایدبار
-st.sidebar.caption("Explore clinical profiles of 510 paired KIRC patients.") 
+st.sidebar.caption("Explore clinical profiles of 510 paired KIRC patients in the below.") 
 patient_id = st.sidebar.selectbox("Select Patient ID:", df['PATIENT_ID'].tolist())
 
 # Patient Data Display
