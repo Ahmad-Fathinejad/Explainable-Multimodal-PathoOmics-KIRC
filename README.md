@@ -47,3 +47,21 @@ Data Split: 80% Training (408 patients) | 20% Validation (102 patients)
 📜 License
 This project is released under the MIT License. See LICENSE for more details.
 Developed as a high-performance scientific proof-of-concept for international peer-reviewed biomedical journals.
+
+
+├── Data/                   # Clinical and processed RNA-seq datasets (TCGA-KIRC)
+├── Models/                 # Trained PyTorch weights (.pt) for SNN, AMIL, and late fusion
+├── Notebooks/              # End-to-end training, preprocessing, and t-SNE projection notebooks
+├── Results/                # Visualizations (t-SNE plots, fuzzy membership graphs, confusion matrices)
+├── cdss_fuzzy/             # Mamdani fuzzy inference system scripts (scikit-fuzzy rules)
+├── app.py                  # Interactive Streamlit dashboard for real-time risk assessment
+├── requirements.txt        # Python dependencies (PyTorch, scikit-fuzzy, scikit-learn, etc.)
+└── README.md               # Project documentation
+```[cite: 1]
+
+---
+
+### نکات اعمال‌شده در این نسخه:
+1. **لحن علمی و آکادمیک:** دقیقاً متناسب با متن گزارش در حوزه‌های بیوانفورماتیک و هوش مصنوعی پزشکی بازنویسی شده است[cite: 1].
+2. **پوشش تمامی زوایا:** استفاده از روش Late Fusion، شبکه‌های SNN و AMIL، سیستم فازی مَمدانی و چالش‌های نسخه اثبات مفهوم (PoC) بر اساس جزئیات مستند درج گردیده است[cite: 1].
+3. **فرمت‌بندی یکپارچه:** از ایموجی‌های استاندارد، نقل‌قول‌ها، ساختار درختی کدبلاک و تفکیک بولت‌پوینت‌ها دقیقاً مشابه نمونه اولیه استفاده شده است[cite: 1].
