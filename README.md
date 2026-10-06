@@ -1,4 +1,4 @@
--# Explainable Multimodal AI for Precision Pathology
+# Explainable Multimodal AI for Precision Pathology
 
 **Integrating Histopathology and Transcriptomics with Late Fusion and Fuzzy Logic for Survival Prediction in TCGA-KIRC**
 
@@ -8,7 +8,7 @@ Predicting patient survival in **Clear Cell Renal Cell Carcinoma (TCGA-KIRC)** r
 
 By integrating transcriptomics with statistical histopathological features using a **Late Fusion** strategy—coupled with a **Mamdani Fuzzy Inference System**—the framework translates raw neural probabilities into interpretable, actionable **Clinical Urgency Scores** (0–100).
 
-> **🔗 Interactive CDSS Dashboard:** An interactive web application built with Streamlit has been implemented to simulate and visualize clinical risk scores, fuzzy membership functions, and model explainability.
+> **🔗 Interactive CDSS Dashboard:** An interactive web application built with Streamlit has been implemented to visualize clinical risk scores, fuzzy membership functions, and model explainability.  https://explainable-multimodal-pathoomics-kirc.streamlit.app/
 
 ## 🎯 Research Objectives
 
