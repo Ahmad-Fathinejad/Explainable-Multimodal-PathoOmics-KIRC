@@ -36,7 +36,7 @@ By integrating transcriptomics with statistical histopathological features using
 
 ## 📁 Repository Structure
 
-
+```text
 ├── Data/                   # Clinical and processed RNA-seq datasets (TCGA-KIRC)
 ├── Models/                 # Trained PyTorch weights (.pt) for SNN, AMIL, and late fusion
 ├── Notebooks/              # End-to-end training, preprocessing, and t-SNE projection notebooks
