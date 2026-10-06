@@ -1,10 +1,10 @@
-# Explainable Multimodal AI for Precision Pathology
+-# Explainable Multimodal AI for Precision Pathology
 
 **Integrating Histopathology and Transcriptomics with Late Fusion and Fuzzy Logic for Survival Prediction in TCGA-KIRC**
 
 ## 📌 Overview & Clinical Utility
 
-Predicting patient survival in **Clear Cell Renal Cell Carcinoma (TCGA-KIRC)** requires capturing multifaceted biological mechanisms that single-modality models often miss. This project addresses the "black-box" dilemma and the curse of dimensionality in precision oncology by introducing a lightweight, multimodal deep learning pipeline.
+Predicting patient survival in **Clear Cell Renal Cell Carcinoma (TCGA-KIRC)** requires capturing multifaceted biological mechanisms that single-modality models often miss. This project addresses the "black-box" dilemma and the curse of dimensionality in precision oncology by introducing an explainable and lightweight, multimodal deep learning pipeline.
 
 By integrating transcriptomics with statistical histopathological features using a **Late Fusion** strategy—coupled with a **Mamdani Fuzzy Inference System**—the framework translates raw neural probabilities into interpretable, actionable **Clinical Urgency Scores** (0–100).
 
