@@ -1,6 +1,6 @@
 # Explainable-Multimodal-PathoOmics-KIRC
 
-##🧬 Explainable Multimodal AI for Precision Pathology: Integrating Histopathology and Transcriptomics in Renal Carcinoma (TCGA-KIRC)
+## 🧬 Explainable Multimodal AI for Precision Pathology: Integrating Histopathology and Transcriptomics in Renal Carcinoma (TCGA-KIRC)
 An end-to-end, production-grade Deep Learning proof-of-concept (PoC) pipeline that integrates high-dimensional transcriptomic profiles with statistical histopathological features for prognostic risk prediction in Clear Cell Renal Cell Carcinoma (TCGA-KIRC). This framework bridges the gap between deep learning black-box predictions and clinical translation using Explainable AI (XAI) and Neuro-Fuzzy logic.
 📂 Repository Structure
 ├── app.py                            # Streamlit Clinical Decision Support System (CDSS) Dashboard
@@ -14,7 +14,7 @@ An end-to-end, production-grade Deep Learning proof-of-concept (PoC) pipeline th
 └── fuzzy_clinical_inference.pdf      # Mamdani Fuzzy Inference System membership & urgency plots
 
 
-##🚀 Key Architectural Highlights
+## 🚀 Key Architectural Highlights
 Strict Reproducibility & Data Integrity: Implements rigorous global seed setting across NumPy, Random, and PyTorch (cudnn.deterministic = True), relying exclusively on authentic, paired TCGA-KIRC clinical and multi-omics GDC data.
 Variance-Based Feature Selection (True HVGs): Bypasses the curse of dimensionality by cleaning and filtering low-variance features to extract the top 1,000 Highly Variable Genes.
 Statistical Pathology Feature Extraction: Bypasses heavy multi-gigabyte WSI downloads in cloud notebooks by extracting 13 core statistical and textural moments (Mean, Std, Skewness, Kurtosis across RGB channels + Shannon Entropy).
@@ -23,14 +23,14 @@ Omics Branch: Self-Normalizing Network (SNN) utilizing SELU activations and Alph
 Vision Branch: Attention-based Multiple Instance Learning (AMIL) specialized for high-dimensional feature projection and attention weighting.
 Explainable AI (XAI): Global weight-based attribution analysis mapping learned network representations directly back to structural pathology signatures.
 Neuro-Fuzzy Clinical Decision Support System (CDSS): Implements a Mamdani Fuzzy Inference System (scikit-fuzzy) utilizing triangular membership functions and clinical IF-THEN rules to translate raw neural network risk probabilities and biomarker impacts into a crisp Clinical Urgency Score (0-100).
-##🛠️ Installation & Requirements
+## 🛠️ Installation & Requirements
 Ensure you have Python 3.11 or higher installed. Clone the repository and install the mandatory dependencies:
 git clone https://github.com/your-username/multimodal-oncology-kirc.git
 cd multimodal-oncology-kirc
 pip install torch torchvision pandas numpy scikit-learn scipy scikit-image matplotlib seaborn streamlit scikit-fuzzy openslide-python
 
 
-##🖥️ Running the Clinical Dashboard (Streamlit)
+## 🖥️ Running the Clinical Dashboard (Streamlit)
 To launch the interactive Clinical Decision Support System dashboard locally:
 streamlit run app.py
 
