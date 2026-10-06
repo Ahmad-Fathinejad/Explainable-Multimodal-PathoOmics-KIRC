@@ -27,7 +27,7 @@ true_status = "Deceased" if patient_data['OS_STATUS_BIN'] == 1 else "Living"
 
 col1, col2, col3 = st.columns(3)
 col1.metric("True Survival Status", true_status)
-col2.metric("Overall Survival (Months)", f"{patient_data['OS_MONTHS']} mo")
+col2.metric("Overall Survival (Months)", f"{patient_data['OS_MONTHS']:.1f} mo")
 col3.metric("Processed Omics", "1000 True HVGs")
 
 st.divider()
