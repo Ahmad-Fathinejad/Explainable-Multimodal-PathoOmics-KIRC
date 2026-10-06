@@ -1,52 +1,40 @@
-# Explainable-Multimodal-PathoOmics-KIRC
+# Explainable Multimodal AI for Precision Pathology
 
-## 🧬 Explainable Multimodal AI for Precision Pathology: Integrating Histopathology and Transcriptomics in Renal Carcinoma (TCGA-KIRC)
-An end-to-end, production-grade Deep Learning proof-of-concept (PoC) pipeline that integrates high-dimensional transcriptomic profiles with statistical histopathological features for prognostic risk prediction in Clear Cell Renal Cell Carcinoma (TCGA-KIRC). This framework bridges the gap between deep learning black-box predictions and clinical translation using Explainable AI (XAI) and Neuro-Fuzzy logic.
-📂 Repository Structure
-├── app.py                            # Streamlit Clinical Decision Support System (CDSS) Dashboard
-├── real_paired_tcga_kirc_1000hvg.csv # Aligned TCGA-KIRC clinical & transcriptomic dataset (1000 HVGs)
-├── sample_dataloader_batch.pt        # Validated PyTorch multimodal batch tensor artifact
-├── untrained_multimodal_model.pth    # Initialized model state dictionary
-├── trained_multimodal_model.pth      # Optimized weights after 10 epochs of training
-├── training_history.csv              # Training and validation loss tracking logs
-├── clinical_evaluation_metrics.pdf   # Publication-ready ROC-AUC and Confusion Matrix vector plots
-├── xai_feature_importance_weights.pdf# Global weight-based attribution plot for pathology biomarkers
-└── fuzzy_clinical_inference.pdf      # Mamdani Fuzzy Inference System membership & urgency plots
+**Integrating Histopathology and Transcriptomics with Late Fusion and Fuzzy Logic for Survival Prediction in TCGA-KIRC**
 
+## 📌 Overview & Clinical Utility
 
-## 🚀 Key Architectural Highlights
-Strict Reproducibility & Data Integrity: Implements rigorous global seed setting across NumPy, Random, and PyTorch (cudnn.deterministic = True), relying exclusively on authentic, paired TCGA-KIRC clinical and multi-omics GDC data.
-Variance-Based Feature Selection (True HVGs): Bypasses the curse of dimensionality by cleaning and filtering low-variance features to extract the top 1,000 Highly Variable Genes.
-Statistical Pathology Feature Extraction: Bypasses heavy multi-gigabyte WSI downloads in cloud notebooks by extracting 13 core statistical and textural moments (Mean, Std, Skewness, Kurtosis across RGB channels + Shannon Entropy).
-Multimodal Late Fusion Architecture:
-Omics Branch: Self-Normalizing Network (SNN) utilizing SELU activations and AlphaDropout.
-Vision Branch: Attention-based Multiple Instance Learning (AMIL) specialized for high-dimensional feature projection and attention weighting.
-Explainable AI (XAI): Global weight-based attribution analysis mapping learned network representations directly back to structural pathology signatures.
-Neuro-Fuzzy Clinical Decision Support System (CDSS): Implements a Mamdani Fuzzy Inference System (scikit-fuzzy) utilizing triangular membership functions and clinical IF-THEN rules to translate raw neural network risk probabilities and biomarker impacts into a crisp Clinical Urgency Score (0-100).
-## 🛠️ Installation & Requirements
-Ensure you have Python 3.11 or higher installed. Clone the repository and install the mandatory dependencies:
-git clone https://github.com/your-username/multimodal-oncology-kirc.git
-cd multimodal-oncology-kirc
-pip install torch torchvision pandas numpy scikit-learn scipy scikit-image matplotlib seaborn streamlit scikit-fuzzy openslide-python
+Predicting patient survival in **Clear Cell Renal Cell Carcinoma (TCGA-KIRC)** requires capturing multifaceted biological mechanisms that single-modality models often miss. This project addresses the "black-box" dilemma and the curse of dimensionality in precision oncology by introducing a lightweight, multimodal deep learning pipeline.
 
+By integrating transcriptomics with statistical histopathological features using a **Late Fusion** strategy—coupled with a **Mamdani Fuzzy Inference System**—the framework translates raw neural probabilities into interpretable, actionable **Clinical Urgency Scores** (0–100).
 
-## 🖥️ Running the Clinical Dashboard (Streamlit)
-To launch the interactive Clinical Decision Support System dashboard locally:
-streamlit run app.py
+> **🔗 Interactive CDSS Dashboard:** An interactive web application built with Streamlit has been implemented to simulate and visualize clinical risk scores, fuzzy membership functions, and model explainability.
 
+## 🎯 Research Objectives
 
-The application provides:
-Patient selection and real metadata inspection.
-Interactive 13-dimensional statistical pathology signature visualization.
-Real-time computation of the Neuro-Fuzzy Clinical Urgency Score and automated medical intervention recommendations.
-📊 Training Pipeline Summary
-The model is trained using MLOps stability controls (gradient clipping, probability clamping, and lightweight data augmentation).
-Optimizer: Adam (, )
-Loss Function: Binary Cross-Entropy (BCE) Loss
-Data Split: 80% Training (408 patients) | 20% Validation (102 patients)
-📜 License
-This project is released under the MIT License. See LICENSE for more details.
-Developed as a high-performance scientific proof-of-concept for international peer-reviewed biomedical journals.
+* **Multimodal Integration:** Bridge transcriptomic profiles (True HVGs) and whole-slide image (WSI) statistical descriptors using an asymmetric dual-branch neural architecture.
+* **Dimensionality & Overhead Mitigation:** Bypass multi-gigabyte WSI memory overhead and high omics dimensionality via variance filtering and targeted statistical-textural image extraction.
+* **Explainable AI (XAI) & Fuzzy Decision Support:** Replace opaque thresholding with an interpretable **Neuro-Fuzzy Clinical Decision Support System (CDSS)** using rule-based Mamdani inference to assist clinical decision-making.
+
+## 🛠️️ Computational Pipeline
+
+* **Data Acquisition & Curation:** Filtered and preprocessed **510 paired patient records** from the TCGA-KIRC cohort. Handled missing values using median imputation and isolated the top **1,000 Highly Variable Genes (HVGs)** via population variance.
+* **Pathology Feature Extraction:** Extracted **13 statistical-textural descriptors**—including RGB channel mean, standard deviation, skewness, kurtosis, and Shannon entropy—to represent tissue heterogeneity without excessive computational overhead.
+* **Dual-Branch Architecture & Late Fusion:**
+  * **Omics Branch:** Built on a **Self-Normalizing Network (SNN)** featuring linear layers, `SELU` activation, and `AlphaDropout` (p = 0.1) to preserve gradient dynamics.
+  * **Vision Branch:** Developed an **Attention-based Multiple Instance Learning (AMIL)** module projecting 13-dimensional morphological metrics into a 512-dimensional latent feature space.
+  * **Classifier:** Concatenates both latent spaces and feeds them into a dense classifier with `Sigmoid` activation to predict binary survival risk.
+* **Training & Regularization:** Trained with the **Adam optimizer** (learning rate: `5e-4`, weight decay: `1e-3`) and **Binary Cross-Entropy (BCE)** loss over 10 epochs. Integrated gradient clipping, probability clamping, and feature-level noise injection for stabilization.
+* **Neuro-Fuzzy Inference:** Extracted global biomarker weights from the projection layer, mapping risk predictions and biomarker influence into triangular membership functions to generate crisp urgency ratings.
+
+## 📊 Key Findings & Benchmarks
+
+* **Biological Cohort Structure:** High-dimensional manifold projection using **t-SNE** confirmed significant genomic structure and variance capture across the top 1,000 HVGs.
+* **Proof-of-Concept Baseline:** The model achieved **66.67% overall accuracy** on the 20% validation split (102 samples).
+* **Class Imbalance Dynamics:** Highlighting typical challenges in proof-of-concept survival pipelines, class imbalance yielded an **ROC-AUC of 0.5000**, establishing an empirical baseline for future survival-loss formulations and real-world WSI integration.
+* **Explainable Output Translation:** The fuzzy decision engine demonstrated precise, non-linear risk interpretation (e.g., converting an AI risk of `0.10` paired with high biomarker influence of `1.0` into a **Clinical Urgency Score of 83.33/100**).
+
+## 📁 Repository Structure
 
 
 ├── Data/                   # Clinical and processed RNA-seq datasets (TCGA-KIRC)
@@ -57,11 +45,3 @@ Developed as a high-performance scientific proof-of-concept for international pe
 ├── app.py                  # Interactive Streamlit dashboard for real-time risk assessment
 ├── requirements.txt        # Python dependencies (PyTorch, scikit-fuzzy, scikit-learn, etc.)
 └── README.md               # Project documentation
-```[cite: 1]
-
----
-
-### نکات اعمال‌شده در این نسخه:
-1. **لحن علمی و آکادمیک:** دقیقاً متناسب با متن گزارش در حوزه‌های بیوانفورماتیک و هوش مصنوعی پزشکی بازنویسی شده است[cite: 1].
-2. **پوشش تمامی زوایا:** استفاده از روش Late Fusion، شبکه‌های SNN و AMIL، سیستم فازی مَمدانی و چالش‌های نسخه اثبات مفهوم (PoC) بر اساس جزئیات مستند درج گردیده است[cite: 1].
-3. **فرمت‌بندی یکپارچه:** از ایموجی‌های استاندارد، نقل‌قول‌ها، ساختار درختی کدبلاک و تفکیک بولت‌پوینت‌ها دقیقاً مشابه نمونه اولیه استفاده شده است[cite: 1].
