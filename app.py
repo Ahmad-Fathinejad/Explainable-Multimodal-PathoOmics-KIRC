@@ -13,7 +13,7 @@ st.markdown("### Clinical Decision Support System - Proof of Concept")
 
 @st.cache_data
 def load_data():
-    return pd.read_csv('real_paired_tcga_kirc_1000hvg.csv')
+    return pd.read_csv('dara/real_paired_tcga_kirc_1000hvg.csv')
 
 df = load_data()
 
